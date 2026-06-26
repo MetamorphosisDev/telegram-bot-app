@@ -27,6 +27,16 @@ A clean, minimalist, and scalable foundation for building Telegram bots using No
 - **[dotenv](https://github.com/motdotla/dotenv)** - Secure environment variable management.
 - **[nodemon](https://nodemon.io/)** - Auto-restart tool for rapid development.
 
+## API Endpoints
+
+This project integrates with the following external APIs:
+
+- **OpenWeather API** – Provides real-time weather data based on the requested city.
+- **Geoapify Static Maps API** – Generates static map images using geographic coordinates.
+
+- https://openweathermap.org/api
+- https://www.geoapify.com/
+
 ## Getting Started
 
 ### 1. Prerequisites
@@ -77,6 +87,10 @@ bot.on("message", (msg) => {
     bot.sendMessage(chatId, "Hello! I am ready to assist you.");
 });
 ```
+
+
+
+
 
 ## Project Structure
 
