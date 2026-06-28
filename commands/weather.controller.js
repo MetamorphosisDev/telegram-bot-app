@@ -1,4 +1,6 @@
+// Import
 const mapsView = require("../utils/weather/weatherMap");
+const RenderWeatherMessage = require("../message/weather.view")
 
 async function getWeather(telegramClient, callback, match) {
     const chatId = callback.chat.id;
@@ -16,26 +18,7 @@ async function getWeather(telegramClient, callback, match) {
 
         const weatherData = await response.json();
 
-        const pesanWeather = `📍 *Lokasi & Kondisi*
-Kota                     : ㅤ${weatherData.name}, ${weatherData.sys.country}
-Cuaca                  : ㅤ${weatherData.weather[0].description}
-Awan                   : ㅤ${weatherData.clouds.all}%
-Jarak Pandang  : ㅤ${weatherData.visibility / 1000} Km
-
-🌡 *Informasi Suhu*
-Suhu                    : ㅤ${weatherData.main.temp}°C
-Terasa                 : ㅤ${weatherData.main.feels_like}°C
-Suhu Min/Max   : ㅤ${weatherData.main.temp_min}°C / ${weatherData.main.temp_max}°C
-Kelembapan       : ㅤ${weatherData.main.humidity}%
-Tekanan              : ㅤ${weatherData.main.pressure} hPa
-
-💨 *Informasi Angin*
-Angin                   : ㅤ${weatherData.wind.speed} m/s
-Arah Angin         : ㅤ${weatherData.wind.deg}°
-
-🌅 *Matahari (Waktu Lokal)*
-Terbit                  : ㅤ${new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}
-Terbenam           : ㅤ${new Date(weatherData.sys.sunset * 1000).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}`;
+        const pesanWeather = RenderWeatherMessage(weatherData)
 
         await telegramClient.sendPhoto(
             chatId,

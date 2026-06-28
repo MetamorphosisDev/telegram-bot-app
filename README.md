@@ -116,8 +116,7 @@ Future enhancements planned for this foundation:
 
 ## Security Note
 
-- Keep your `TOKEN_BOT` private.
+- Keep your `TOKEN_BOT, OPENWEATHER_KEY, GEOAPIFY_API_KE` private.
 - Ensure `.env` is listed in your `.gitignore` file before pushing to GitHub.
 
 ---
-*This project is built for educational and learning purposes.*
